@@ -1,0 +1,9 @@
+listen:
+  host: 0.0.0.0
+  poty: 8192
+
+storage:
+  dir: /opt/notebooks
+  mounts:
+    examples:
+      dir: examples

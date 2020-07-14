@@ -1,0 +1,25 @@
+version: '3.4'
+
+
+services:
+  mysql:
+    container_name: mysql56
+
+    image: mysql:5.6
+
+    network_mode: "bridge"
+    
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - $PWD/confdir:/etc/mysql
+      - $PWD/datadir:/var/lib/mysql
+      - $PWD/logdir:/var/log/mysql
+
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+
+    deploy:
+      restart_policy:
+        condition: on-failure

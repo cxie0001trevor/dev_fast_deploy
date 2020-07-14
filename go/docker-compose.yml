@@ -1,0 +1,20 @@
+version: '3.4'
+
+
+services:
+  jupyter_notebook:
+    container_name: go_jn
+
+    image: gopherdata/gophernotes:latest-ds
+
+    network_mode: "bridge"
+    
+    ports:
+      - "12888:8888"
+
+    volumes:
+      - $PWD/workspace:/workspace
+
+    deploy:
+      restart_policy:
+        condition: on-failure

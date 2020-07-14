@@ -1,0 +1,21 @@
+version: '3.4'
+
+
+services:
+  polynote:
+    container_name: polynote
+
+    image: polynote/polynote:latest
+    network_mode: "bridge"
+    command: ['--config', '/opt/config/config.yml']
+    ports:
+      - "8192:8192"
+      - "4040-4050:4040-4050"
+
+    volumes:
+      - $PWD/config.yml:/opt/config/config.yml
+      - $PWD/notebooks:/opt/notebooks
+
+    deploy:
+      restart_policy:
+        condition: on-failure

@@ -1,0 +1,20 @@
+version: '3.4'
+
+
+services:
+  jupyter_notebook:
+    container_name: py3_jn
+
+    image: jupyter/minimal-notebook
+
+    network_mode: "bridge"
+    
+    ports:
+      - "10888:8888"
+
+    volumes:
+      - $PWD:/home/jovyan
+
+    deploy:
+      restart_policy:
+        condition: on-failure

@@ -1,0 +1,20 @@
+version: '3.4'
+
+
+services:
+  jupyter_notebook:
+    container_name: dsenv
+
+    image: jupyter/datascience-notebook
+
+    network_mode: "bridge"
+    
+    ports:
+      - "11888:8888"
+
+    volumes:
+      - $PWD:/home/jovyan
+
+    deploy:
+      restart_policy:
+        condition: on-failure
