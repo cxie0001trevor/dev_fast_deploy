@@ -3,17 +3,24 @@ version: '3.4'
 
 services:
   jupyter_notebook:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: notebook:test
     container_name: py3_jn
-
-    image: jupyter/minimal-notebook
-
-    network_mode: "bridge"
     
+    env_file:
+      - ./notebook.env
+    
+    user: root
+    privileged: true
+    
+    network_mode: "bridge"
     ports:
       - "10888:8888"
 
     volumes:
-      - $PWD:/home/jovyan
+      - $PWD/workspace:/home/jovyan
 
     deploy:
       restart_policy:

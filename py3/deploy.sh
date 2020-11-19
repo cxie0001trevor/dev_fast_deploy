@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker-compose --compatibility down
+docker-compose --compatibility down --rmi all
 
-docker-compose --compatibility up -d
+docker-compose --compatibility up -d --build
