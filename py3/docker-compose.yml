@@ -1,16 +1,14 @@
 version: '3.4'
 
-
 services:
   jupyter_notebook:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: notebook:test
-    container_name: py3_jn
-    
-    env_file:
-      - ./notebook.env
+    build: .
+    image: trevor.notebook:1.0.0
+    container_name: py3_notebook
+
+    environment:
+      - GRANT_SUDO=true
+      - GEOS_DIR=/usr/local/geos
     
     user: root
     privileged: true
@@ -21,6 +19,8 @@ services:
 
     volumes:
       - $PWD/workspace:/home/jovyan
+      - $PWD/downloads:/home/jovyan/downloads
+      - $PWD/pkg/:/home/jovyan/pkg
 
     deploy:
       restart_policy:
