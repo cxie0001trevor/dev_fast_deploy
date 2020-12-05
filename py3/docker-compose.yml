@@ -1,14 +1,15 @@
 version: '3.4'
 
 services:
-  jupyter_notebook:
-    build: .
-    image: trevor.notebook:1.0.0
+  py3_notebook:
+    image: jupyter/datascience-notebook
     container_name: py3_notebook
-
+    working_dir: /home/jovyan/work
     environment:
       - GRANT_SUDO=true
       - GEOS_DIR=/usr/local/geos
+      - PIP_CONFIG_PATH=/home/jovyan/.config/pip/pip.conf
+      - JUPYTER_CONFIG_PATH=/home/jovyan/.config/jupyter_notebook_config.py
     
     user: root
     privileged: true
@@ -18,9 +19,10 @@ services:
       - "10888:8888"
 
     volumes:
-      - $PWD/workspace:/home/jovyan
-      - $PWD/downloads:/home/jovyan/downloads
-      - $PWD/pkg/:/home/jovyan/pkg
+      - $PWD/work:/home/jovyan/work
+      - $PWD/downloads:/downloads
+      - $PWD/custom:/home/jovyan/custom
+      - $PWD/custom/jupyter_notebook_config.py:/home/jovyan/.jupyter/jupyter_notebook_config.py
 
     deploy:
       restart_policy:
