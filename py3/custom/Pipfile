@@ -15,7 +15,4 @@ grpcio = "==1.33.2"
 grpcio-tools = "==1.33.2"
 
 # Not must-have
-rich = "==9.3.0" 
-
-[requires]
-python_version = "3.7"
+rich = "==9.3.0"
