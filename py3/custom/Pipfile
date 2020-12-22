@@ -15,7 +15,7 @@ redis-py-cluster = "==2.0.0"
 kafka-python = "==2.0.1"
 
 # communication
-requests = "==2.18.4"
+requests = ">=2.20.0"
 grpcio = "==1.33.2"
 grpcio-tools = "==1.33.2"
 
