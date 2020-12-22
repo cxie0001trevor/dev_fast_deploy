@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   py3_notebook:
-    image: jupyter/datascience-notebook
+    image: jupyter/datascience-notebook:latest
     container_name: py3_notebook
     working_dir: /home/jovyan/work
     environment:
@@ -10,6 +10,7 @@ services:
       - GEOS_DIR=/usr/local/geos
       - PIP_CONFIG_PATH=/home/jovyan/.config/pip/pip.conf
       - JUPYTER_CONFIG_PATH=/home/jovyan/.config/jupyter_notebook_config.py
+      - JUPYTER_TOKEN=123456
     
     user: root
     privileged: true
