@@ -20,10 +20,10 @@ services:
       - "10888:8888"
 
     volumes:
+      - $PWD/custom/jupyter_notebook_config.py:/home/jovyan/.jupyter/jupyter_notebook_config.py
       - $PWD/work:/home/jovyan/work
       - $PWD/downloads:/downloads
       - $PWD/custom:/home/jovyan/custom
-      - $PWD/custom/jupyter_notebook_config.py:/home/jovyan/.jupyter/jupyter_notebook_config.py
 
     deploy:
       restart_policy:
