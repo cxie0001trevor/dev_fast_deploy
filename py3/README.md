@@ -39,3 +39,34 @@ Warning: --system is intended to be used for Pipfile installation, not installat
 See also: --deploy flag.
 ```
 
+* docker从仓库拉取镜像慢的问题，可以通过修改仓库镜像解决。
+
+> Docker中国区官方镜像
+> https://registry.docker-cn.com
+> 网易
+> http://hub-mirror.c.163.com
+> 
+> ustc 
+> https://docker.mirrors.ustc.edu.cn
+> 
+> 中国科技大学
+> https://docker.mirrors.ustc.edu.cn
+> 
+> 阿里云容器  服务
+> https://cr.console.aliyun.com/
+
+On Mac: `Docker Desktop` -> `Preferences` -> `Docker Engines`
+
+```
+{
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
+}
+```
+
+On CentOs: `/etc/docker/daemon.json`
+
+
